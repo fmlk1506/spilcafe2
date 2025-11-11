@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spilcaféen</title>
     <link rel="stylesheet" href="app.css" />
+    <link
+      rel="shortcut icon"
+      href="https://images.squarespace-cdn.com/content/v1/61fd2c9026a58c435d260f4c/1af90772-e642-4309-a2cb-f4161e36855e/SC-logo-2023-transparant-BG+Small+Crop.png⁩"
+      type="image/logo"
+    />
   </head>
   <body>
     <!-- Topbar -->
@@ -42,6 +47,16 @@
         </select>
       </div>
     </header>
+
+    <!-- BOOKING FLOW (skjult indtil man trykker "Reserver bord") -->
+<section id="booking-view" class="booking" hidden>
+  <header class="booking-top">
+    <button class="icon-btn" id="booking-back" aria-label="Tilbage">←</button>
+    <img src="https://images.squarespace-cdn.com/content/v1/61fd2c9026a58c435d260f4c/1af90772-e642-4309-a2cb-f4161e36855e/SC-logo-2023-transparant-BG+Small+Crop.png" alt="Spilcaféen" class="booking-logo">
+  </header>
+
+  <div id="booking-stage" class="booking-stage"><!-- step content her --></div>
+</section>
 
     <main class="page">
       <!-- Søg som i designet -->
@@ -126,18 +141,56 @@
       <section id="game-list" class="card-grid"></section>
     </main>
 
-    <!-- Bundnavigation som i mockup -->
-    <nav class="tabbar">
-      <button class="tab"><span>🎲</span><small>Alle spil</small></button>
-      <button class="tab"><span>🪑</span><small>Reserver bord</small></button>
-      <button class="tab active"><span>🏠</span><small>Hjem</small></button>
-      <button class="tab" id="filter-favourites">
-        <span>❤️</span><small>Favoritter</small>
-      </button>
-      <button class="tab"><span>👤</span><small>Profil</small></button>
-    </nav>
+<!-- Modal: stort kort -->
+<div id="game-modal" class="modal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" data-close aria-label="Luk">×</button>
+    <div class="modal-media">
+      <img id="modal-image" alt="">
+    </div>
+    <div class="modal-body">
+      <h2 id="modal-title"></h2>
+      <div class="modal-meta" id="modal-meta"></div>
+      <p id="modal-desc"></p>
+      <div class="modal-details" id="modal-details"></div>
+      <details id="modal-rules-wrap" class="modal-rules" hidden>
+        <summary>Regler</summary>
+        <pre id="modal-rules"></pre>
+      </details>
+    </div>
+  </article>
+</div>
 
-    <footer class="legal">© Spilcaféen • RACE</footer>
+
+
+
+
+
+    <!-- Bundnavigation som i mockup -->
+    <nav class="tabbar tabbar--fab">
+  <button class="tab" id="tab-all">
+    <span>🎮</span><small>Alle spil</small>
+  </button>
+
+  <button class="tab" id="tab-reserve">
+    <span>📅</span><small>Reserver bord</small>
+  </button>
+
+  <!-- den runde, forhøjede hjem-knap -->
+  <button class="home-fab" id="tab-home" aria-label="Hjem">🏠</button>
+
+  <button class="tab" id="filter-favourites">
+    <span>❤️</span><small>Favoritter</small>
+  </button>
+
+  <button class="tab" id="tab-profile">
+    <span>👤</span><small>Profil</small>
+  </button>
+</nav>
+
+
+    <footer class="legal">© Spilcaféen</footer>
     <script src="app.js"></script>
   </body>
 </html>
