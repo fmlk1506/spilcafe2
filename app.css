@@ -694,6 +694,85 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
 }
+/* --- BOOKING – Kalender (runde dag-bobler) --- */
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 6px 0 8px;
+}
+.cal-arrow {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 22px;
+  padding: 6px 10px;
+  color: #3b2118;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  justify-items: center;
+}
+
+.cal-day {
+  /* ma, ti, on ... */
+  font-weight: 700;
+  font-size: 14px;
+  color: #7b5647;
+}
+
+.cal-cell {
+  /* <-- de enkelte dages KNAPPER */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* gør dem RUNDE */
+  border: 1px solid var(--ring);
+  background: #7fa763;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+.cal-cell:hover {
+  background: #f2e4d8;
+  transform: scale(1.06);
+}
+.cal-cell.selected {
+  background: #7b5647;
+  color: #fff;
+}
+.cal-cell.busy {
+  background: #c27474;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.legend {
+  margin-top: 10px;
+  color: #7b5647;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-green {
+  background: #7fb77e;
+}
+.dot-red {
+  background: #c27474;
+}
 
 .bubble {
   background: #5b2a1a;
